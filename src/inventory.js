@@ -5,19 +5,26 @@ const inventory = [
     "sku": "BGLO",
     "price": 0.49,
     "name": "Bagel",
-    "variant": "Onion"
+    "variant": "Onion",
+    "discount": "6 for 2.49",
+    "saving": -0.49,
+    "discountTrigger": 6
     },
     {
     "sku": "BGLP",
     "price": 0.39,
     "name": "Bagel",
-    "variant": "Plain"
+    "variant": "Plain",
+    "discount": "12 for 3.99",
+    "saving": -0.69
     },
     {
     "sku": "BGLE",
     "price": 0.49,
     "name": "Bagel",
-    "variant": "Everything"
+    "variant": "Everything",
+    "discount": "6 for 2.49",
+    "saving": -0.49
     },
     {
     "sku": "BGLS",

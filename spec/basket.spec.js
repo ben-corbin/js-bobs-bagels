@@ -14,7 +14,9 @@ describe("Basket", () => {
         "sku": "BGLO",
         "price": 0.49,
         "name": "Bagel",
-        "variant": "Onion"
+        "variant": "Onion",
+        "discount": "6 for 2.49",
+        "saving": -0.49
         }]
     // execute
     // basket.this.basketSize = 4
@@ -30,19 +32,25 @@ describe("Basket", () => {
         "sku": "BGLO",
         "price": 0.49,
         "name": "Bagel",
-        "variant": "Onion"
+        "variant": "Onion",
+        "discount": "6 for 2.49",
+        "saving": -0.49
         },
         {
         "sku": "BGLP",
         "price": 0.39,
         "name": "Bagel",
-        "variant": "Plain"
+        "variant": "Plain",
+        "discount": "12 for 3.99",
+        "saving": -0.69
         },
         {
         "sku": "BGLE",
         "price": 0.49,
         "name": "Bagel",
-        "variant": "Everything"
+        "variant": "Everything",
+        "discount": "6 for 2.49",
+        "saving": -0.49
         }]
 
    // execute
@@ -59,9 +67,11 @@ describe("Basket", () => {
     // set up
      const expected = [{
         "sku": "BGLE",
-        "price": 0.49,
-        "name": "Bagel",
-        "variant": "Everything"
+    "price": 0.49,
+    "name": "Bagel",
+    "variant": "Everything",
+    "discount": "6 for 2.49",
+    "saving": -0.49
         }]
     // execute
     // basket.this.basketSize = 4
@@ -89,25 +99,42 @@ describe("Basket", () => {
      expect(result).toEqual(expected);
    })
 
+//    it("trys to add an item that doesn't exist", () => {
+//     // set up
+//     const expected = ("This item does not exist")
+//     // execute
+//     // basket.this.basketSize = 4
+    
+//     const result = basket.addToBasket("BGLL")
+//     // verify
+//      expect(result).toEqual(expected);
+//    })
+
     it("allows a manager to increase basket size if required", () => {
     // set up
     const expected = [ {
         "sku": "BGLO",
         "price": 0.49,
         "name": "Bagel",
-        "variant": "Onion"
+        "variant": "Onion",
+        "discount": "6 for 2.49",
+        "saving": -0.49
         },
         {
         "sku": "BGLP",
         "price": 0.39,
         "name": "Bagel",
-        "variant": "Plain"
+        "variant": "Plain",
+        "discount": "12 for 3.99",
+        "saving": -0.69
         },
         {
         "sku": "BGLE",
         "price": 0.49,
         "name": "Bagel",
-        "variant": "Everything"
+        "variant": "Everything",
+        "discount": "6 for 2.49",
+        "saving": -0.49
         },
         {
         "sku": "BGLS",
@@ -207,8 +234,24 @@ describe("Basket", () => {
         basket.addToBasket("BGLS")
         basket.addToBasket("COF")
         basket.addToBasket("BGSE")
-        
-        const result = basket.discountedPrice()
+        basket.addToBasket("BGLO")
+        basket.addToBasket("BGLO")
+        basket.addToBasket("BGLO")
+        basket.addToBasket("BGLO")
+        basket.addToBasket("BGLO")
+        basket.addToBasket("BGLO")
+        basket.addToBasket("BGLP")
+        basket.addToBasket("BGLE")
+        basket.addToBasket("BGLS")
+        basket.addToBasket("COF")
+        basket.addToBasket("BGSE")
+        basket.addToBasket("BGLP")
+        basket.addToBasket("BGLE")
+        basket.addToBasket("BGLS")
+        basket.addToBasket("COF")
+        basket.addToBasket("BGSE")
+
+        const result = basket.totalBasketPrice()
         // verify
          expect(result).toEqual(expected);
        })
