@@ -190,13 +190,23 @@ describe("Basket", () => {
         // set up
          const expected = 2.94
         // execute
-        basket.basketSize = 6
+        basket.basketSize = 50
         basket.addToBasket("BGLO")
         basket.addToBasket("BGLO")
         basket.addToBasket("BGLO")
         basket.addToBasket("BGLO")
         basket.addToBasket("BGLO")
         basket.addToBasket("BGLO")
+        basket.addToBasket("BGLP")
+        basket.addToBasket("BGLE")
+        basket.addToBasket("BGLS")
+        basket.addToBasket("COF")
+        basket.addToBasket("BGSE")
+        basket.addToBasket("BGLP")
+        basket.addToBasket("BGLE")
+        basket.addToBasket("BGLS")
+        basket.addToBasket("COF")
+        basket.addToBasket("BGSE")
         
         const result = basket.discountedPrice()
         // verify
