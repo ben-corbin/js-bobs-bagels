@@ -36,22 +36,12 @@ class Basket {
         }
         }
 
-    totalBasketPrice(){
-        let totalPrice = 0
-        for (let i = 0; i < this.priceArray.length; i++) {
-            totalPrice += this.priceArray[i]
-        }
-        totalPrice = totalPrice - this.discountedPrice()
-    return Number(totalPrice.toFixed(2))
- }
-
     discountedPrice() {
 
     for (let i = 0; i < this.basketArray.length; i++){
         this.discountedArray.push(this.basketArray[i].sku)  
         }
         this.count = this.discountedArray.reduce((tally, sku) => 
-        
         {tally[sku] = (tally[sku] || 0) + 1;
             return tally;
         } , {}) 
@@ -65,32 +55,26 @@ class Basket {
                     totalDiscount += item.saving * (Math.floor(count / item.discountTrigger))
                 }
             }
-    
         }
-        
-    return totalDiscount
-        
+    return totalDiscount 
         }
-        
+
     getItem(sku) {
-        
             for(let i = 0; i < menu.length; i++){
             if (menu[i].sku === sku){
             return menu[i]  
-        }
             }
- }
+            }
+    }
     
-        
-    
-    //this discountedPrice function is now returning an object which contains
-    //the name of each SKU and the amount of times it occurs 
-    
-    // for (let i = 0; i < this.discountedArray.length; i++)
-    // if (this.discountedArray[i].sku === ""
-
-
-    
+ totalBasketPrice() {
+    let totalPrice = 0
+    for (let i = 0; i < this.priceArray.length; i++) {
+        totalPrice += this.priceArray[i]
+    }
+    totalPrice = totalPrice - this.discountedPrice()
+    return Number(totalPrice.toFixed(2))
+}      
 
 }
 
