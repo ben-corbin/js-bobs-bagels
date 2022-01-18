@@ -1,0 +1,58 @@
+To discuss why I have made certain choices with the 
+functions and tests I have written for.
+
+Extension 1.
+
+I made another JS file during the core exercise to
+hold an array of objects that would be my inventory.
+
+This already used SKU as one of the keys which made
+the first part of Ext1 pass as you could search by this or any 
+of the keys with a simple code change and it would return the
+whole item object.
+
+I am aware of the general need for code to be able to scale,
+hence my earlier decision to make the basket increasing
+something that could be called in the test, and the 
+basket size a variable and not a fixed number or series of
+varying basket sizes, so I set a basic basket in the constructor
+and then made it so that the test could change that at any time.
+
+Because of this need to scale I am trying to find a way
+to only count the qualifying items in any basket 
+once, then count the rest of the items using the 
+regular method that I have already written.
+
+I know that using .filter wouldn't work that well because 
+I would end up with my old basket array still full of all the
+items added, and a new array/s with all the discount items, so
+the double counting would be an issue.
+
+My first thought was to use the reduce method in a way that would 
+return a tally of the SKU values which I could then use to ascertain 
+a total for each type of item and then apply the appropriate
+calculation for each, no matter how many of the items there are.
+
+I'm still reading around that idea at the moment but plan to investigate 
+an idea that Paul had based on something from Eloquent JavaScript.
+
+I've had another idea which is to create a new array which contains
+all of the SKU key values from the basket array. I can then use the reduce
+function to create an object which will be a new object with
+each sku value as a key and the count as a value. I can then use this
+object key and value pairings to calculate the totals for each item type
+using a function that applies custom values for each deal.
+
+This has the advantage that I can deal with as many items being 
+purchased at a time with no issue. It's inevitable that the
+deals need to be entered when first created and when changed, that 
+will always be the case, but they could feed in as variables 
+
+** As I was typing here I realised that the variable should be in the 
+inventory file. Back to the drawing board**
+
+I've now got the code working with a hand from Lewis. I was returning an object
+that I am using to count the occurances of each SKU and apply
+the saving as per the inventory. This is a scalable solution that Allows
+the inventory to be updated without having to change the code, as long
+as the deal type is a similar format. I'm happy with this approach.

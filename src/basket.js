@@ -37,7 +37,6 @@ class Basket {
         }
 
     discountedPrice() {
-
     for (let i = 0; i < this.basketArray.length; i++){
         this.discountedArray.push(this.basketArray[i].sku)  
         }
